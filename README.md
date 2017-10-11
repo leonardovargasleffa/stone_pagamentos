@@ -37,7 +37,8 @@ var dadosSale = {
 },
 "InstallmentCount": 1, //PARCELAS
 "Options":{
-"CurrencyIso":"BRL"
+"CurrencyIso":"BRL",
+"SoftDescriptorText": "NOME QUE APARECE NA FATURA DO CLIENTE"
 }
 }
 ],
