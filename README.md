@@ -2,7 +2,7 @@
 
 Client para a API V1.1 da Stone Pagamentos em Node.Js
 
-## Installation
+## Instalação
 ```js
 npm install --save stone_pagamentos
 ```
@@ -75,7 +75,7 @@ if(check[1] == false){ //ERRO NO PAGAMENTO
 ### Capturando uma venda
 ```js
 var dadosSale = {
-OrderKey: '01df6e28-6ddd-45db-a095-903c1adb170a',
+OrderKey: '01df6e28-6ddd-45db-a095-903c1adb170a'
 }
 
 stone.creditCard.captureSale(dadosSale, function(err, data){
@@ -89,7 +89,7 @@ return console.log(data);
 ### Cancelando uma venda
 ```js
 var dadosSale = {
-OrderKey: '01df6e28-6ddd-45db-a095-903c1adb170a',
+OrderKey: '01df6e28-6ddd-45db-a095-903c1adb170a'
 }
 
 stone.creditCard.cancelSale(dadosSale, function(err, data){
