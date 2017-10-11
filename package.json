@@ -1,0 +1,26 @@
+{
+  "name": "stone_pagamentos",
+  "version": "1.0.0",
+  "description": "Módulo de Integração com a Stone Pagamentos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinmyspot/stone_pagamentos.git"
+  },
+  "keywords": [
+    "pagamento",
+    "stone",
+    "pinmyspot",
+    "visa",
+    "master"
+  ],
+  "author": "Pinmyspot <contato@pinmyspot.com.br> (http://pinmyspot.com.br)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pinmyspot/stone_pagamentos/issues"
+  },
+  "homepage": "https://github.com/pinmyspot/stone_pagamentos#readme"
+}
