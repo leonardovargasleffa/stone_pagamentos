@@ -1,11 +1,15 @@
 {
   "name": "stone_pagamentos",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Módulo de Integração com a Stone Pagamentos",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "iconv-lite": "latest",
+    "https": "~1.0"
+  },  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pinmyspot/stone_pagamentos.git"
