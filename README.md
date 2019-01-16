@@ -110,17 +110,17 @@ Consulte os campos necessários na documentação da Stone Pagamentos
 
 ## Autor
 
-Pinmyspot <[contato@pinmyspot.com.br](mailto:contato@pinmyspot.com.br)>
+Leonardo V. Leffa <[leonardovargasleffa@outlook.com](mailto:leonardovargasleffa@outlook.com)>
 
-[Site Oficial](http://pinmyspot.com.br/)
+[Site Oficial](http://leonardovargasleffa.com.br/)
 
-[Github](https://github.com/pinmyspot.com.br)
+[Github](https://github.com/leonardovargasleffa)
 
-[Twitter](http://twitter.com/pinmyspot)
+[Twitter](http://twitter.com/lleoo_8)
 
-[Instagram](http://instagram.com/pinmyspot)
+[Instagram](http://instagram.com/leonardovargasleffa)
 
-[Facebook](http://facebook.com/pinmyspot)
+[Facebook](http://facebook.com/leonardovargasleffa)
 
 ## License
 
