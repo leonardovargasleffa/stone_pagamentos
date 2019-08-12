@@ -47,7 +47,7 @@ var dadosSale = {
 }
 };
 
-stone.creditCard.simpleTransaction(dadosSale, function(err, data){
+stone.creditCard.Sale(dadosSale, function(err, data){
 if (err){
 return console.error('ERRO', err);
 } else {
@@ -110,13 +110,11 @@ Consulte os campos necessários na documentação da Stone Pagamentos
 
 ## Autor
 
-Leonardo V. Leffa <[leonardovargasleffa@outlook.com](mailto:leonardovargasleffa@outlook.com)>
-
 [Site Oficial](http://leonardovargasleffa.com.br/)
 
 [Github](https://github.com/leonardovargasleffa)
 
-[Twitter](http://twitter.com/lleoo_8)
+[Twitter](http://twitter.com/lleoo8)
 
 [Instagram](http://instagram.com/leonardovargasleffa)
 
