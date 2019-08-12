@@ -12,19 +12,19 @@
   },  
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pinmyspot/stone_pagamentos.git"
+    "url": "git+https://github.com/leonardovargasleffa/stone_pagamentos.git"
   },
   "keywords": [
     "pagamento",
     "stone",
-    "pinmyspot",
+    "leonardovargasleffa",
     "visa",
     "master"
   ],
   "author": "Pinmyspot <contato@pinmyspot.com.br> (http://pinmyspot.com.br)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pinmyspot/stone_pagamentos/issues"
+    "url": "https://github.com/leonardovargasleffa/stone_pagamentos/issues"
   },
-  "homepage": "https://github.com/pinmyspot/stone_pagamentos#readme"
+  "homepage": "https://github.com/leonardovargasleffa/stone_pagamentos#readme"
 }
