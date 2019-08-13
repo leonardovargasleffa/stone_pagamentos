@@ -74,7 +74,7 @@ module.exports = function (params) {
 		};
 
 		request(request_options, function (error, response, body) {
-			  if (!error && response.statusCode == 201) {
+			  if (!error && response.statusCode == 200) {
 			    callback(null, body);
 			    return;
 			  } else {
@@ -109,7 +109,7 @@ module.exports = function (params) {
 		};
 
 		request(request_options, function (error, response, body) {
-			  if (!error && response.statusCode == 201) {
+			  if (!error && response.statusCode == 200) {
 			    callback(null, body);
 			    return;
 			  } else {
