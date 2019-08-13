@@ -3,7 +3,7 @@ const request = require('request');
 module.exports = function (params) {
 
 	var options = {
-		hostname: 'http://transaction.stone.com.br',
+		hostname: 'https://transaction.stone.com.br',
 		port: 443,
 		secureProtocol: 'TLSv1_method',
 		encoding: 'utf-8',
