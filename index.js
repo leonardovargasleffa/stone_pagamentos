@@ -1,10 +1,9 @@
-var https = require('http');
-var iconv = require('iconv-lite');
+const request = require('request');
 
 module.exports = function (params) {
 
 	var options = {
-		hostname: 'transaction.stone.com.br',
+		hostname: 'http://transaction.stone.com.br',
 		port: 443,
 		secureProtocol: 'TLSv1_method',
 		encoding: 'utf-8',
@@ -28,43 +27,61 @@ module.exports = function (params) {
 			}
 		}
 
-		var data = JSON.stringify(data);
+		var string_data = JSON.stringify(data);
+		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
-		options.headers['Content-Length'] = Buffer.byteLength(data);
-		options.path = '/Sale/';
-		options.method = 'POST';
+		const request_options = {
+		  url: options.hostname+'/Sale/',
+		  headers: options.headers,
+		  method: 'POST',
+		  body: data,
+		  json: true,
+		  encoding: options.encoding,
+		  agentOptions: {
+	        secureProtocol: options.secureProtocol,
+	        port: options.port
+	      }
+		};
 
-		var req = https.request(options, function (res) {
-			res.on('data', function (chunk) {
-				var data = iconv.decode(chunk, 'utf-8');
-				callback(null, data)
-			});
+		request(request_options, function (error, response, body) {
+			  if (!error && response.statusCode == 201) {
+			    callback(null, body);
+			    return;
+			  } else {
+		  		callback(error, null);
+		  		return;
+			  }
 		});
-		req.write(data);
-		req.on('error', function (err) {
-			callback(err);
-		});
-		req.end();
+
 	}
 	
 	var captureSale = function(data, callback){
 
-		var data = JSON.stringify(data);
-		options.headers['Content-Length'] = Buffer.byteLength(data);
-		options.path = '/Sale/Capture';
-		options.method = 'POST';
+		var string_data = JSON.stringify(data);
+		options.headers['Content-Length'] = Buffer.byteLength(string_data);
+		
+		const request_options = {
+		  url: options.hostname+'/Sale/Capture',
+		  headers: options.headers,
+		  method: 'POST',
+		  body: data,
+		  json: true,
+		  encoding: options.encoding,
+		  agentOptions: {
+	        secureProtocol: options.secureProtocol,
+	        port: options.port
+	      }
+		};
 
-		var req = https.request(options, function (res) {
-			res.on('data', function (chunk) {
-				var data = iconv.decode(chunk, 'utf-8');
-				callback(null, data)
-			});
+		request(request_options, function (error, response, body) {
+			  if (!error && response.statusCode == 201) {
+			    callback(null, body);
+			    return;
+			  } else {
+		  		callback(error, null);
+		  		return;
+			  }
 		});
-		req.write(data);
-		req.on('error', function (err) {
-			callback(err);
-		});
-		req.end();
 
 	}
 
@@ -75,22 +92,32 @@ module.exports = function (params) {
 	 */
 	var cancelSale = function(data, callback){
 
-		var data = JSON.stringify(data);
-		options.headers['Content-Length'] = Buffer.byteLength(data);
-		options.path = '/Sale/Cancel';
-		options.method = 'POST';
+		var string_data = JSON.stringify(data);
+		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
-		var req = https.request(options, function (res) {
-			res.on('data', function (chunk) {
-				var data = iconv.decode(chunk, 'utf-8');
-				callback(null, data)
-			});
+		const request_options = {
+		  url: options.hostname+'/Sale/Cancel',
+		  headers: options.headers,
+		  method: 'POST',
+		  body: data,
+		  json: true,
+		  encoding: options.encoding,
+		  agentOptions: {
+	        secureProtocol: options.secureProtocol,
+	        port: options.port
+	      }
+		};
+
+		request(request_options, function (error, response, body) {
+			  if (!error && response.statusCode == 201) {
+			    callback(null, body);
+			    return;
+			  } else {
+		  		callback(error, null);
+		  		return;
+			  }
 		});
-		req.write(data);
-		req.on('error', function (err) {
-			callback(err);
-		});
-		req.end();
+
 	}
 
 	var checkPaymentStone = function(code){

@@ -1,15 +1,14 @@
 {
   "name": "stone_pagamentos",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Módulo de Integração com a Stone Pagamentos",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "iconv-lite": "latest",
-    "https": "~1.0"
-  },  
+    "request": "latest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leonardovargasleffa/stone_pagamentos.git"
@@ -21,7 +20,7 @@
     "visa",
     "master"
   ],
-  "author": "Pinmyspot <contato@pinmyspot.com.br> (http://pinmyspot.com.br)",
+  "author": "Leonardo V Leffa <leonardovargasleffa@outlook.com> (http://leonardovargasleffa.com.br)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/leonardovargasleffa/stone_pagamentos/issues"
