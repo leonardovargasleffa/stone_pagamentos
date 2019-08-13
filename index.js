@@ -48,17 +48,6 @@ module.exports = function (params) {
 	}
 	
 	var captureSale = function(data, callback){
-		
-		if(params.sandbox){
-			if(data.CreditCardTransactionCollection[0].Options != null){
-				data.CreditCardTransactionCollection[0].Options.PaymentMethodCode = 1;
-			} else {
-				data.CreditCardTransactionCollection[0].Options = {
-                    "CurrencyIso":"BRL",
-                    "PaymentMethodCode":1
-                };
-			}
-		}
 
 		var data = JSON.stringify(data);
 		options.headers['Content-Length'] = Buffer.byteLength(data);
@@ -85,17 +74,6 @@ module.exports = function (params) {
 	 * @param {callback} callback 
 	 */
 	var cancelSale = function(data, callback){
-
-		if(params.sandbox){
-			if(data.CreditCardTransactionCollection[0].Options != null){
-				data.CreditCardTransactionCollection[0].Options.PaymentMethodCode = 1;
-			} else {
-				data.CreditCardTransactionCollection[0].Options = {
-                    "CurrencyIso":"BRL",
-                    "PaymentMethodCode":1
-                };
-			}
-		}
 
 		var data = JSON.stringify(data);
 		options.headers['Content-Length'] = Buffer.byteLength(data);
