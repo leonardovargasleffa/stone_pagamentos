@@ -1,6 +1,6 @@
 ## Stone
 
-Client para a API V1.1 da Stone Pagamentos em Node.Js
+Client para a API v1.2 da Stone Pagamentos em Node.Js
 
 ## Instalação
 ```js
@@ -105,7 +105,7 @@ return console.log(data);
 
 Consulte os campos necessários na documentação da Stone Pagamentos
 
-[PT-Br](http://gateway.stone.com.br/v1.1/docs)
+[PT-Br](https://gateway.stone.com.br/v1.2/docs)
 
 
 ## Autor
