@@ -1,6 +1,6 @@
 {
   "name": "stone_pagamentos",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Módulo de Integração com a Stone Pagamentos",
   "main": "index.js",
   "scripts": {
