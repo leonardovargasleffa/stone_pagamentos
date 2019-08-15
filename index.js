@@ -1,12 +1,13 @@
 const request = require('request');
+const fs = require("fs")
 
 module.exports = function (params) {
 
 	var options = {
-		hostname: 'https://transaction.stone.com.br',
-		port: 443,
-		secureProtocol: 'TLSv1_method',
+		url: 'https://transaction.stone.com.br',
+		method: 'POST',
 		encoding: 'utf-8',
+	    json: true,
 		headers: {
 			'Content-Type': 'application/json',
 			'Accept': 'application/json',
@@ -30,20 +31,14 @@ module.exports = function (params) {
 		var string_data = JSON.stringify(data);
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
-		const request_options = {
-		  url: options.hostname+'/Sale/',
-		  headers: options.headers,
-		  method: 'POST',
-		  body: data,
-		  json: true,
-		  encoding: options.encoding,
-		  agentOptions: {
-	        secureProtocol: options.secureProtocol,
-	        port: options.port
-	      }
-		};
+		const request_options = options;
+		request_options.url += '/Sale/';
+		request_options.body = data;
 
 		request(request_options, function (error, response, body) {
+				console.info(error);
+				console.info('========');
+				console.info(body);
 			  if (!error && response.statusCode == 201) {
 			    callback(null, body);
 			    return;
@@ -59,19 +54,10 @@ module.exports = function (params) {
 
 		var string_data = JSON.stringify(data);
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
-		
-		const request_options = {
-		  url: options.hostname+'/Sale/Capture',
-		  headers: options.headers,
-		  method: 'POST',
-		  body: data,
-		  json: true,
-		  encoding: options.encoding,
-		  agentOptions: {
-	        secureProtocol: options.secureProtocol,
-	        port: options.port
-	      }
-		};
+
+		const request_options = options;
+		request_options.url += '/Sale/Capture/';
+		request_options.body = data;
 
 		request(request_options, function (error, response, body) {
 			  if (!error && response.statusCode == 200) {
@@ -95,18 +81,9 @@ module.exports = function (params) {
 		var string_data = JSON.stringify(data);
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
-		const request_options = {
-		  url: options.hostname+'/Sale/Cancel',
-		  headers: options.headers,
-		  method: 'POST',
-		  body: data,
-		  json: true,
-		  encoding: options.encoding,
-		  agentOptions: {
-	        secureProtocol: options.secureProtocol,
-	        port: options.port
-	      }
-		};
+		const request_options = options;
+		request_options.url += '/Sale/Cancel/';
+		request_options.body = data;
 
 		request(request_options, function (error, response, body) {
 			  if (!error && response.statusCode == 200) {
@@ -396,4 +373,3 @@ module.exports = function (params) {
 		checkPaymentStone: checkPaymentStone
 	}
 }
-
