@@ -36,9 +36,6 @@ module.exports = function (params) {
 		request_options.method = 'POST';
 
 		request(request_options, function (error, response, body) {
-				console.info(error);
-				console.info('========');
-				console.info(body);
 			  if (!error && response.statusCode == 201) {
 			    callback(null, body);
 			    return;
@@ -56,7 +53,7 @@ module.exports = function (params) {
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
 		const request_options = options;
-		request_options.url += '/Sale/Capture/';
+		request_options.url += '/Sale/Capture';
 		request_options.body = data;
 		request_options.method = 'POST';
 
@@ -83,7 +80,7 @@ module.exports = function (params) {
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
 		const request_options = options;
-		request_options.url += '/Sale/Cancel/';
+		request_options.url += '/Sale/Cancel';
 		request_options.body = data;
 		request_options.method = 'POST';
 
