@@ -58,7 +58,7 @@ module.exports = function (params) {
 		const request_options = options;
 		request_options.url += '/Sale/Capture/';
 		request_options.body = data;
-		request_options.method = 'GET';
+		request_options.method = 'POST';
 
 		request(request_options, function (error, response, body) {
 			  if (!error && response.statusCode == 200) {
@@ -85,7 +85,7 @@ module.exports = function (params) {
 		const request_options = options;
 		request_options.url += '/Sale/Cancel/';
 		request_options.body = data;
-		request_options.method = 'GET';
+		request_options.method = 'POST';
 
 		request(request_options, function (error, response, body) {
 			  if (!error && response.statusCode == 200) {
