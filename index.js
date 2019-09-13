@@ -116,9 +116,9 @@ module.exports = function (params) {
 		});
 	}
 
-	var getCard = function(instantBuyKey, callback){
+	var getCard = function(BuyerKey, callback){
 		const request_options = options;
-		request_options.url += '/CreditCard/'+instantBuyKey;
+		request_options.url += '/CreditCard/BuyerKey='+BuyerKey;
 		request_options.method = 'GET';
 
 		request(request_options, function (error, response, body) {
@@ -421,9 +421,9 @@ module.exports = function (params) {
 			Sale: Sale,
 			captureSale: captureSale,
 			cancelSale: cancelSale,
-			addCard: addCard,
-			getCard: getCard,
-			deleteCard: deleteCard
+			add: addCard,
+			delete: deleteCard,
+			getBuyer: getCard,
 		},
 		checkPaymentStone: checkPaymentStone
 	}
