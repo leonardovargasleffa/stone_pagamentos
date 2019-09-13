@@ -96,6 +96,27 @@ module.exports = function (params) {
 
 	};
 
+	
+	var addBuyer = function(data, callback){
+		var string_data = JSON.stringify(data);
+		options.headers['Content-Length'] = Buffer.byteLength(string_data);
+
+		const request_options = options;
+		request_options.url += '/Buyer';
+		request_options.body = data;
+		request_options.method = 'POST';
+
+		request(request_options, function (error, response, body) {
+			  if (!error && response.statusCode == 200) {
+			    callback(null, body);
+			    return;
+			  } else {
+		  		callback(error, null);
+		  		return;
+			  }
+		});
+	}
+	
 	var addCard = function(data, callback){
 		var string_data = JSON.stringify(data);
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
@@ -422,8 +443,11 @@ module.exports = function (params) {
 			captureSale: captureSale,
 			cancelSale: cancelSale,
 			add: addCard,
-			delete: deleteCard,
-			getBuyer: getCard,
+			delete: deleteCard
+		},
+		buyer: {
+			add: addBuyer,
+			getCards: getCard
 		},
 		checkPaymentStone: checkPaymentStone
 	}
