@@ -94,7 +94,60 @@ module.exports = function (params) {
 			  }
 		});
 
+	};
+
+	var addCard = function(data, callback){
+		var string_data = JSON.stringify(data);
+		options.headers['Content-Length'] = Buffer.byteLength(string_data);
+
+		const request_options = options;
+		request_options.url += '/CreditCard';
+		request_options.body = data;
+		request_options.method = 'POST';
+
+		request(request_options, function (error, response, body) {
+			  if (!error && response.statusCode == 200) {
+			    callback(null, body);
+			    return;
+			  } else {
+		  		callback(error, null);
+		  		return;
+			  }
+		});
 	}
+
+	var getCard = function(instantBuyKey, callback){
+		const request_options = options;
+		request_options.url += '/CreditCard/'+instantBuyKey;
+		request_options.method = 'GET';
+
+		request(request_options, function (error, response, body) {
+			  if (!error && response.statusCode == 200) {
+			    callback(null, body);
+			    return;
+			  } else {
+		  		callback(error, null);
+		  		return;
+			  }
+		});
+	}
+
+	var deleteCard = function(instantBuyKey, callback){
+		const request_options = options;
+		request_options.url += '/CreditCard/'+instantBuyKey;
+		request_options.method = 'DELETE';
+
+		request(request_options, function (error, response, body) {
+			  if (!error && response.statusCode == 200) {
+			    callback(null, body);
+			    return;
+			  } else {
+		  		callback(error, null);
+		  		return;
+			  }
+		});
+	}
+
 
 	var checkPaymentStone = function(code){
 		switch(parseInt(code)){
@@ -367,7 +420,10 @@ module.exports = function (params) {
 		creditCard: {
 			Sale: Sale,
 			captureSale: captureSale,
-			cancelSale: cancelSale
+			cancelSale: cancelSale,
+			addCard: addCard,
+			getCard: getCard,
+			deleteCard: deleteCard
 		},
 		checkPaymentStone: checkPaymentStone
 	}
