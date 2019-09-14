@@ -1,10 +1,10 @@
 const request = require('request');
 const fs = require("fs")
+const URL = 'https://transaction.stone.com.br';
 
 module.exports = function (params) {
 
 	var options = {
-		url: 'https://transaction.stone.com.br',
 		encoding: 'utf-8',
 	    json: true,
 		headers: {
@@ -31,7 +31,7 @@ module.exports = function (params) {
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
 		const request_options = options;
-		request_options.url += '/Sale/';
+		request_options.url = URL+'/Sale/';
 		request_options.body = data;
 		request_options.method = 'POST';
 
@@ -53,7 +53,7 @@ module.exports = function (params) {
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
 		const request_options = options;
-		request_options.url += '/Sale/Capture';
+		request_options.url = URL+'/Sale/Capture';
 		request_options.body = data;
 		request_options.method = 'POST';
 
@@ -80,7 +80,7 @@ module.exports = function (params) {
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
 		const request_options = options;
-		request_options.url += '/Sale/Cancel';
+		request_options.url = URL+'/Sale/Cancel';
 		request_options.body = data;
 		request_options.method = 'POST';
 
@@ -102,17 +102,17 @@ module.exports = function (params) {
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
 		const request_options = options;
-		request_options.url += '/Buyer';
+		request_options.url = URL+'/Buyer/';
 		request_options.body = data;
 		request_options.method = 'POST';
 
 		request(request_options, function (error, response, body) {
-			  if (!error && response.statusCode == 200) {
-			    callback(null, body);
-			    return;
+			  if (response.statusCode == 201 && body.BuyerKey != '00000000-0000-0000-0000-000000000000') {
+			    	callback(null, body.BuyerKey);
+			    	return;
 			  } else {
-		  		callback(error, null);
-		  		return;
+		  			callback(error, "");
+		  			return;
 			  }
 		});
 	}
@@ -122,12 +122,12 @@ module.exports = function (params) {
 		options.headers['Content-Length'] = Buffer.byteLength(string_data);
 
 		const request_options = options;
-		request_options.url += '/CreditCard';
+		request_options.url = URL+'/CreditCard/';
 		request_options.body = data;
 		request_options.method = 'POST';
 
 		request(request_options, function (error, response, body) {
-			  if (!error && response.statusCode == 200) {
+			  if (!error && response.statusCode == 201) {
 			    callback(null, body);
 			    return;
 			  } else {
@@ -139,15 +139,15 @@ module.exports = function (params) {
 
 	var getCard = function(BuyerKey, callback){
 		const request_options = options;
-		request_options.url += '/CreditCard/BuyerKey='+BuyerKey;
+		request_options.url = URL+'/CreditCard/'+BuyerKey+'/BuyerKey';
 		request_options.method = 'GET';
 
 		request(request_options, function (error, response, body) {
-			  if (!error && response.statusCode == 200) {
-			    callback(null, body);
+			  if (response.statusCode == 200) {
+			    callback(null, (body.CreditCardDataCollection != undefined ? body.CreditCardDataCollection : []));
 			    return;
 			  } else {
-		  		callback(error, null);
+		  		callback(null, []);
 		  		return;
 			  }
 		});
@@ -155,7 +155,7 @@ module.exports = function (params) {
 
 	var deleteCard = function(instantBuyKey, callback){
 		const request_options = options;
-		request_options.url += '/CreditCard/'+instantBuyKey;
+		request_options.url = URL+'/CreditCard/'+instantBuyKey;
 		request_options.method = 'DELETE';
 
 		request(request_options, function (error, response, body) {
